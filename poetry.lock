@@ -1194,6 +1194,17 @@ intel-openmp = ">=2021.0.0,<2022.0.0"
 tbb = ">=2021.0.0,<2022.0.0"
 
 [[package]]
+name = "mlcm"
+version = "0.0.1"
+description = "Multi-Label Confusion Matrix"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+numpy = "*"
+
+[[package]]
 name = "mpmath"
 version = "1.3.0"
 description = "Python library for arbitrary-precision floating-point arithmetic"
@@ -2377,6 +2388,21 @@ optional = false
 python-versions = ">=2"
 
 [[package]]
+name = "upsetplot"
+version = "0.9.0"
+description = "Draw Lex et al.'s UpSet plots with Pandas and Matplotlib"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+matplotlib = ">=2.0"
+pandas = ">=0.23"
+
+[package.extras]
+testing = ["pytest (>=2.7)", "pytest-cov (<2.6)"]
+
+[[package]]
 name = "uri-template"
 version = "1.3.0"
 description = "RFC 6570 URI Template Processor"
@@ -2479,7 +2505,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "3.10.12"
-content-hash = "090664c138ce460ed27928588b1b6f56a7afbba9baf2fdf287189244db837b36"
+content-hash = "66ba2afaeab7e22c303d177a66f24f9519a310e7d08e225ad683aecbd6675a43"
 
 [metadata.files]
 absl-py = []
@@ -2560,6 +2586,7 @@ matplotlib = []
 matplotlib-inline = []
 mistune = []
 mkl = []
+mlcm = []
 mpmath = []
 multidict = []
 nbclient = []
@@ -2650,6 +2677,7 @@ triton = []
 types-python-dateutil = []
 typing-extensions = []
 tzdata = []
+upsetplot = []
 uri-template = []
 urllib3 = []
 wcwidth = []
