@@ -293,34 +293,15 @@ optional = false
 python-versions = ">=3.7.0"
 
 [[package]]
-name = "clearml"
-version = "1.16.1"
-description = "ClearML - Auto-Magical Experiment Manager, Version Control, and MLOps for AI"
+name = "click"
+version = "8.1.7"
+description = "Composable command line interface toolkit"
 category = "main"
 optional = false
-python-versions = "*"
+python-versions = ">=3.7"
 
 [package.dependencies]
-attrs = ">=18.0"
-furl = ">=2.0.0"
-jsonschema = ">=2.6.0"
-numpy = ">=1.10"
-pathlib2 = ">=2.3.0"
-Pillow = ">=4.1.1"
-psutil = ">=3.4.2"
-pyjwt = {version = ">=2.4.0,<2.9.0", markers = "python_version > \"3.5\""}
-pyparsing = ">=2.0.3"
-python-dateutil = ">=2.6.1"
-PyYAML = ">=3.12"
-referencing = {version = "<0.40", markers = "python_version >= \"3.8\""}
-requests = ">=2.20.0"
-six = ">=1.13.0"
-urllib3 = ">=1.21.1"
-
-[package.extras]
-azure = ["azure-storage-blob (>=12.0.0)"]
-gs = ["google-cloud-storage (>=1.13.2)"]
-s3 = ["boto3 (>=1.9)"]
+colorama = {version = "*", markers = "platform_system == \"Windows\""}
 
 [[package]]
 name = "colorama"
@@ -411,6 +392,17 @@ description = "XML bomb protection for Python stdlib modules"
 category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[[package]]
+name = "docker-pycreds"
+version = "0.4.0"
+description = "Python bindings for the docker credentials store API"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+six = ">=1.4.0"
 
 [[package]]
 name = "exceptiongroup"
@@ -536,16 +528,30 @@ test-full = ["adlfs", "aiohttp (!=4.0.0a0,!=4.0.0a1)", "cloudpickle", "dask", "d
 tqdm = ["tqdm"]
 
 [[package]]
-name = "furl"
-version = "2.1.3"
-description = "URL manipulation made simple."
+name = "gitdb"
+version = "4.0.11"
+description = "Git Object Database"
 category = "main"
 optional = false
-python-versions = "*"
+python-versions = ">=3.7"
 
 [package.dependencies]
-orderedmultidict = ">=1.0.1"
-six = ">=1.8.0"
+smmap = ">=3.0.1,<6"
+
+[[package]]
+name = "gitpython"
+version = "3.1.43"
+description = "GitPython is a Python library used to interact with Git repositories"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+gitdb = ">=4.0.1,<5"
+
+[package.extras]
+doc = ["sphinx (==4.3.2)", "sphinx-rtd-theme", "sphinxcontrib-applehelp (>=1.0.2,<=1.0.4)", "sphinxcontrib-devhelp (==1.0.2)", "sphinxcontrib-htmlhelp (>=2.0.0,<=2.0.1)", "sphinxcontrib-qthelp (==1.0.3)", "sphinxcontrib-serializinghtml (==1.1.5)", "sphinx-autodoc-typehints"]
+test = ["coverage", "ddt (>=1.1.1,!=1.4.3)", "mypy", "pre-commit", "pytest (>=7.3.1)", "pytest-cov", "pytest-instafail", "pytest-mock", "pytest-sugar", "typing-extensions", "mock"]
 
 [[package]]
 name = "greenlet"
@@ -1617,17 +1623,6 @@ optional = ["boto3", "cmaes (>=0.10.0)", "google-cloud-storage", "matplotlib (!=
 test = ["coverage", "fakeredis", "kaleido", "moto", "pytest", "torch", "scipy (>=1.9.2)"]
 
 [[package]]
-name = "orderedmultidict"
-version = "1.0.1"
-description = "Ordered Multivalue Dictionary"
-category = "main"
-optional = false
-python-versions = "*"
-
-[package.dependencies]
-six = ">=1.8.0"
-
-[[package]]
 name = "overrides"
 version = "7.7.0"
 description = "A decorator to automatically detect mismatch when overriding a method."
@@ -1701,17 +1696,6 @@ python-versions = ">=3.6"
 [package.extras]
 qa = ["flake8 (==5.0.4)", "mypy (==0.971)", "types-setuptools (==67.2.0.1)"]
 testing = ["docopt", "pytest"]
-
-[[package]]
-name = "pathlib2"
-version = "2.3.7.post1"
-description = "Object-oriented filesystem paths"
-category = "main"
-optional = false
-python-versions = "*"
-
-[package.dependencies]
-six = "*"
 
 [[package]]
 name = "pexpect"
@@ -1872,20 +1856,6 @@ python-versions = ">=3.8"
 windows-terminal = ["colorama (>=0.4.6)"]
 
 [[package]]
-name = "pyjwt"
-version = "2.8.0"
-description = "JSON Web Token implementation in Python"
-category = "main"
-optional = false
-python-versions = ">=3.7"
-
-[package.extras]
-crypto = ["cryptography (>=3.4.0)"]
-dev = ["sphinx (>=4.5.0,<5.0.0)", "sphinx-rtd-theme", "zope.interface", "cryptography (>=3.4.0)", "pytest (>=6.0.0,<7.0.0)", "coverage[toml] (==5.0.4)", "pre-commit"]
-docs = ["sphinx (>=4.5.0,<5.0.0)", "sphinx-rtd-theme", "zope.interface"]
-tests = ["pytest (>=6.0.0,<7.0.0)", "coverage[toml] (==5.0.4)"]
-
-[[package]]
 name = "pyparsing"
 version = "3.1.2"
 description = "pyparsing module - Classes and methods to define and execute parsing grammars"
@@ -1942,6 +1912,17 @@ examples = ["requests (<2.32.0)", "torchvision (>=0.14.0)", "gym[classic_control
 extra = ["matplotlib (>3.1)", "omegaconf (>=2.0.5)", "hydra-core (>=1.0.5)", "jsonargparse[signatures] (>=4.27.7)", "rich (>=12.3.0)", "tensorboardX (>=2.2)", "bitsandbytes (==0.41.0)"]
 strategies = ["deepspeed (>=0.8.2,<=0.9.3)"]
 test = ["coverage (==7.3.1)", "pytest (==7.4.0)", "pytest-cov (==4.1.0)", "pytest-timeout (==2.1.0)", "pytest-rerunfailures (==12.0)", "pytest-random-order (==1.1.0)", "cloudpickle (>=1.3)", "scikit-learn (>0.22.1)", "onnx (>=0.14.0)", "onnxruntime (>=0.15.0)", "psutil (<5.9.6)", "pandas (>1.0)", "fastapi", "uvicorn", "tensorboard (>=2.9.1)"]
+
+[[package]]
+name = "pytorch-multilabel-balanced-sampler"
+version = "0.1.3"
+description = "PyTorch samplers that output roughly balanced batches with support for multilabel datasets."
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.dependencies]
+torch = "*"
 
 [[package]]
 name = "pytz"
@@ -2197,12 +2178,78 @@ objc = ["pyobjc-framework-cocoa"]
 win32 = ["pywin32"]
 
 [[package]]
+name = "sentry-sdk"
+version = "2.7.1"
+description = "Python client for Sentry (https://sentry.io)"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+certifi = "*"
+urllib3 = ">=1.26.11"
+
+[package.extras]
+aiohttp = ["aiohttp (>=3.5)"]
+anthropic = ["anthropic (>=0.16)"]
+arq = ["arq (>=0.23)"]
+asyncpg = ["asyncpg (>=0.23)"]
+beam = ["apache-beam (>=2.12)"]
+bottle = ["bottle (>=0.12.13)"]
+celery = ["celery (>=3)"]
+celery-redbeat = ["celery-redbeat (>=2)"]
+chalice = ["chalice (>=1.16.0)"]
+clickhouse-driver = ["clickhouse-driver (>=0.2.0)"]
+django = ["django (>=1.8)"]
+falcon = ["falcon (>=1.4)"]
+fastapi = ["fastapi (>=0.79.0)"]
+flask = ["flask (>=0.11)", "blinker (>=1.1)", "markupsafe"]
+grpcio = ["grpcio (>=1.21.1)", "protobuf (>=3.8.0)"]
+httpx = ["httpx (>=0.16.0)"]
+huey = ["huey (>=2)"]
+huggingface-hub = ["huggingface-hub (>=0.22)"]
+langchain = ["langchain (>=0.0.210)"]
+loguru = ["loguru (>=0.5)"]
+openai = ["openai (>=1.0.0)", "tiktoken (>=0.3.0)"]
+opentelemetry = ["opentelemetry-distro (>=0.35b0)"]
+opentelemetry-experimental = ["opentelemetry-instrumentation-aio-pika (==0.46b0)", "opentelemetry-instrumentation-aiohttp-client (==0.46b0)", "opentelemetry-instrumentation-aiopg (==0.46b0)", "opentelemetry-instrumentation-asgi (==0.46b0)", "opentelemetry-instrumentation-asyncio (==0.46b0)", "opentelemetry-instrumentation-asyncpg (==0.46b0)", "opentelemetry-instrumentation-aws-lambda (==0.46b0)", "opentelemetry-instrumentation-boto (==0.46b0)", "opentelemetry-instrumentation-boto3sqs (==0.46b0)", "opentelemetry-instrumentation-botocore (==0.46b0)", "opentelemetry-instrumentation-cassandra (==0.46b0)", "opentelemetry-instrumentation-celery (==0.46b0)", "opentelemetry-instrumentation-confluent-kafka (==0.46b0)", "opentelemetry-instrumentation-dbapi (==0.46b0)", "opentelemetry-instrumentation-django (==0.46b0)", "opentelemetry-instrumentation-elasticsearch (==0.46b0)", "opentelemetry-instrumentation-falcon (==0.46b0)", "opentelemetry-instrumentation-fastapi (==0.46b0)", "opentelemetry-instrumentation-flask (==0.46b0)", "opentelemetry-instrumentation-grpc (==0.46b0)", "opentelemetry-instrumentation-httpx (==0.46b0)", "opentelemetry-instrumentation-jinja2 (==0.46b0)", "opentelemetry-instrumentation-kafka-python (==0.46b0)", "opentelemetry-instrumentation-logging (==0.46b0)", "opentelemetry-instrumentation-mysql (==0.46b0)", "opentelemetry-instrumentation-mysqlclient (==0.46b0)", "opentelemetry-instrumentation-pika (==0.46b0)", "opentelemetry-instrumentation-psycopg (==0.46b0)", "opentelemetry-instrumentation-psycopg2 (==0.46b0)", "opentelemetry-instrumentation-pymemcache (==0.46b0)", "opentelemetry-instrumentation-pymongo (==0.46b0)", "opentelemetry-instrumentation-pymysql (==0.46b0)", "opentelemetry-instrumentation-pyramid (==0.46b0)", "opentelemetry-instrumentation-redis (==0.46b0)", "opentelemetry-instrumentation-remoulade (==0.46b0)", "opentelemetry-instrumentation-requests (==0.46b0)", "opentelemetry-instrumentation-sklearn (==0.46b0)", "opentelemetry-instrumentation-sqlalchemy (==0.46b0)", "opentelemetry-instrumentation-sqlite3 (==0.46b0)", "opentelemetry-instrumentation-starlette (==0.46b0)", "opentelemetry-instrumentation-system-metrics (==0.46b0)", "opentelemetry-instrumentation-threading (==0.46b0)", "opentelemetry-instrumentation-tornado (==0.46b0)", "opentelemetry-instrumentation-tortoiseorm (==0.46b0)", "opentelemetry-instrumentation-urllib (==0.46b0)", "opentelemetry-instrumentation-urllib3 (==0.46b0)", "opentelemetry-instrumentation-wsgi (==0.46b0)"]
+pure-eval = ["pure-eval", "executing", "asttokens"]
+pymongo = ["pymongo (>=3.1)"]
+pyspark = ["pyspark (>=2.4.4)"]
+quart = ["quart (>=0.16.1)", "blinker (>=1.1)"]
+rq = ["rq (>=0.6)"]
+sanic = ["sanic (>=0.8)"]
+sqlalchemy = ["sqlalchemy (>=1.2)"]
+starlette = ["starlette (>=0.19.1)"]
+starlite = ["starlite (>=1.48)"]
+tornado = ["tornado (>=6)"]
+
+[[package]]
+name = "setproctitle"
+version = "1.3.3"
+description = "A Python module to customize the process title"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+test = ["pytest"]
+
+[[package]]
 name = "six"
 version = "1.16.0"
 description = "Python 2 and 3 compatibility utilities"
 category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[[package]]
+name = "smmap"
+version = "5.0.1"
+description = "A pure Python implementation of a sliding window memory map manager"
+category = "main"
+optional = false
+python-versions = ">=3.7"
 
 [[package]]
 name = "sniffio"
@@ -2601,6 +2648,39 @@ socks = ["pysocks (>=1.5.6,!=1.5.7,<2.0)"]
 zstd = ["zstandard (>=0.18.0)"]
 
 [[package]]
+name = "wandb"
+version = "0.17.4"
+description = "A CLI and library for interacting with the Weights & Biases API."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+click = ">=7.1,<8.0.0 || >8.0.0"
+docker-pycreds = ">=0.4.0"
+gitpython = ">=1.0.0,<3.1.29 || >3.1.29"
+platformdirs = "*"
+protobuf = {version = ">=3.19.0,<4.21.0 || >4.21.0,<6", markers = "python_version > \"3.9\" and sys_platform == \"linux\" or sys_platform != \"linux\""}
+psutil = ">=5.0.0"
+pyyaml = "*"
+requests = ">=2.0.0,<3"
+sentry-sdk = ">=1.0.0"
+setproctitle = "*"
+
+[package.extras]
+aws = ["boto3"]
+azure = ["azure-identity", "azure-storage-blob"]
+gcp = ["google-cloud-storage"]
+importers = ["filelock", "mlflow", "polars", "rich", "tenacity"]
+kubeflow = ["google-cloud-storage", "kubernetes", "minio", "sh"]
+launch = ["awscli", "azure-containerregistry", "azure-identity", "azure-storage-blob", "boto3", "botocore", "chardet", "google-auth", "google-cloud-aiplatform", "google-cloud-artifact-registry", "google-cloud-compute", "google-cloud-storage", "iso8601", "kubernetes", "kubernetes-asyncio", "nbconvert", "nbformat", "optuna", "pydantic", "pyyaml (>=6.0.0)", "tomli", "typing-extensions"]
+media = ["bokeh", "moviepy", "numpy", "pillow", "plotly (>=5.18.0)", "rdkit-pypi", "soundfile"]
+models = ["cloudpickle"]
+perf = ["orjson"]
+sweeps = ["sweeps (>=0.2.0)"]
+workspaces = ["wandb-workspaces"]
+
+[[package]]
 name = "wcwidth"
 version = "0.2.13"
 description = "Measures the displayed width of unicode strings in a terminal"
@@ -2678,7 +2758,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "3.10.12"
-content-hash = "441c99cc98aacd9bfc26ca9125d568eea46f80da871f93d4f0c441919ceb6b54"
+content-hash = "9286c8464b3f68c4c20bdcd25f865a4fece25a5abd92a3f6ce5afbf0f541d25d"
 
 [metadata.files]
 absl-py = []
@@ -2703,7 +2783,7 @@ bleach = []
 certifi = []
 cffi = []
 charset-normalizer = []
-clearml = []
+click = []
 colorama = []
 colorlog = []
 comm = []
@@ -2712,6 +2792,7 @@ cycler = []
 debugpy = []
 decorator = []
 defusedxml = []
+docker-pycreds = []
 exceptiongroup = []
 executing = []
 fastjsonschema = []
@@ -2720,7 +2801,8 @@ fonttools = []
 fqdn = []
 frozenlist = []
 fsspec = []
-furl = []
+gitdb = []
+gitpython = []
 greenlet = []
 grpcio = []
 h11 = []
@@ -2790,13 +2872,11 @@ nvidia-nvtx-cu12 = []
 opencv-python = []
 opencv-python-headless = []
 optuna = []
-orderedmultidict = []
 overrides = []
 packaging = []
 pandas = []
 pandocfilters = []
 parso = []
-pathlib2 = []
 pexpect = []
 pillow = []
 platformdirs = []
@@ -2811,11 +2891,11 @@ pycparser = []
 pydantic = []
 pydantic-core = []
 pygments = []
-pyjwt = []
 pyparsing = []
 python-dateutil = []
 python-json-logger = []
 pytorch-lightning = []
+pytorch-multilabel-balanced-sampler = []
 pytz = []
 pywin32 = []
 pywinpty = []
@@ -2834,7 +2914,10 @@ scikit-learn = []
 scipy = []
 seaborn = []
 send2trash = []
+sentry-sdk = []
+setproctitle = []
 six = []
+smmap = []
 sniffio = []
 soupsieve = []
 sqlalchemy = []
@@ -2863,6 +2946,7 @@ tzdata = []
 upsetplot = []
 uri-template = []
 urllib3 = []
+wandb = []
 wcwidth = []
 webcolors = []
 webencodings = []

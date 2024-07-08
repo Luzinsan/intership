@@ -3,3 +3,7 @@ lightning_logs/
 ex1/EX1_CIFAR.ipynb
 
 content/
+ex2/artifacts/
+ex2/WB intership/
+ex2/wandb/
+ex2/weights/
