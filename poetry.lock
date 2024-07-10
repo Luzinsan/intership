@@ -2515,6 +2515,14 @@ typing = ["types-setuptools", "types-six", "types-tabulate", "types-pyyaml", "to
 visual = ["matplotlib (>=3.3.0)", "SciencePlots (>=2.0.0)"]
 
 [[package]]
+name = "torchsummary"
+version = "1.5.1"
+description = "Model summary in PyTorch similar to `model.summary()` in Keras"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "torchvision"
 version = "0.18.1"
 description = "image and video datasets and models for torch deep learning"
@@ -2758,7 +2766,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "3.10.12"
-content-hash = "9286c8464b3f68c4c20bdcd25f865a4fece25a5abd92a3f6ce5afbf0f541d25d"
+content-hash = "6f5c8a8bb7fa5db04e8967e7aa6e467bcb56c2e7d64943e2f4251ec3d0988641"
 
 [metadata.files]
 absl-py = []
@@ -2935,6 +2943,7 @@ tinycss2 = []
 tomli = []
 torch = []
 torchmetrics = []
+torchsummary = []
 torchvision = []
 tornado = []
 tqdm = []
